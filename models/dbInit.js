@@ -1,4 +1,4 @@
-import { Event, Items, User, EventList } from './indexModels.js';
+import { Event, Item, User, EventList } from './indexModels.js';
 
 User.hasMany(Event, {
     foreignKey: 'owner_id',
