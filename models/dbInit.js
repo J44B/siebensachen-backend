@@ -1,4 +1,12 @@
-import { Event, Item, User, EventList, ListItem } from './indexModels.js';
+import {
+    Event,
+    Item,
+    User,
+    EventList,
+    ListItem,
+    Category,
+    ItemCategory,
+} from './indexModels.js';
 
 User.hasMany(Event, {
     foreignKey: 'owner_id',
@@ -28,11 +36,13 @@ Event.hasMany(EventList, {
 
 Item.belongsToMany(EventList, { through: ListItem });
 
+Category.belongsToMany(Item, { through: ItemCategory });
+
 await User.sync();
 await Event.sync();
 await Item.sync();
 await EventList.sync();
+await Category.sync();
 
-// ListItem is undefined in the current state of development!
-
-// await ListItem.sync();
+// await ListItem.sync(); // ListItem is undefined in the current state of development!
+// await ItemCategory.sync(); // ItemCategory is undefined in the current state of development!
