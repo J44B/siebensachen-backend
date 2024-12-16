@@ -30,7 +30,4 @@ export const Event = sequelize.define('Event', {
     list_ids: {
         type: DataTypes.ARRAY, // Array of list_ids in the specific event
     },
-    owner_id: {
-        type: DataTypes.INTEGER, // Refer to user_id
-    },
 });
