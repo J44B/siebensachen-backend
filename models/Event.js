@@ -1,6 +1,5 @@
 import sequelize from '../db/db.js';
 import { DataTypes } from 'sequelize';
-import Op from 'sequelize';
 
 export const Event = sequelize.define('Event', {
     title: {
@@ -19,7 +18,7 @@ export const Event = sequelize.define('Event', {
         allowNull: false,
     },
     nights: {
-        type: DataTypes.INTEGER(endDate - startDate),
+        type: DataTypes.INTEGER(sequelize.endDate - sequelize.startDate),
     },
     recurring: {
         type: DataTypes.BOOLEAN,
@@ -28,6 +27,6 @@ export const Event = sequelize.define('Event', {
         type: DataTypes.STRING,
     },
     list_ids: {
-        type: DataTypes.ARRAY, // Array of list_ids in the specific event
+        type: DataTypes.ARRAY(DataTypes.INTEGER), // Array of list_ids in the specific event
     },
 });

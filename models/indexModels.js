@@ -1,9 +1,10 @@
 // --- Begin import section ---
 
 import { Event } from './Event.js';
-import { Items } from './Items.js';
+import { Item } from './Item.js';
 import { User } from './User.js';
+import { EventList } from './EventList.js';
 
 // --- End import section ---
 
-export { Event, Items, User };
+export { Event, Item, User, EventList };

@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import './models/indexModels.js';
 import './db/db.js';
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(
         origin: '*',
     }),
 );
+
 app.use(morgan('dev'));
 
 const port = process.env.PORT || 8080;
