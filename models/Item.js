@@ -9,7 +9,8 @@ export const Item = sequelize.define('Items', {
     icon: {
         type: DataTypes.STRING,
     },
-    user_id: {
-        type: DataTypes.INTEGER, // Associate with user_id. If "-1" then it's a default item not added by a user
+    isDefault: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false, // if "true" then the item must not be deletable in the items list
     },
 });

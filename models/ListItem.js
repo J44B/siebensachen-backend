@@ -6,5 +6,4 @@ export const ListItem = sequelize.define('ListItem', {
         type: DataTypes.INTEGER,
         defaultValue: 1,
     },
-    timestamps: false,
 });

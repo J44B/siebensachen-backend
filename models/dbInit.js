@@ -5,39 +5,36 @@ import {
     EventList,
     ListItem,
     Category,
+    Collaborator,
 } from './indexModels.js';
 
-User.hasMany(Event);
-
+User.hasMany(Event, { foreignKey: 'owner_id' });
 Event.belongsTo(User, { foreignKey: 'owner_id' });
 
-Event.hasMany(EventList);
+User.hasOne(Collaborator, { foreignKey: 'user_id' });
+Collaborator.belongsTo(User, { foreignKey: 'user_id' });
 
-EventList.belongsTo(Event);
+Event.hasMany(EventList, { foreignKey: 'event_id' });
+EventList.belongsTo(Event, { foreignKey: 'event_id' });
 
-Item.hasMany(Category);
+Event.hasMany(Collaborator, { foreignKey: 'event_id' });
 
-Category.belongsToMany(Item, { through: 'ItemCategory' });
-
-EventList.hasMany(Item);
-
-Item.belongsToMany(EventList, { through: 'ListItem' });
-
-ListItem.hasMany(Item);
-
-ListItem.belongsTo(ListItem, {
-    foreignKey: 'list_id',
+Item.hasMany(Category, { foreignKey: 'item_id' });
+Category.belongsToMany(Item, {
     foreignKey: 'item_id',
+    through: 'ItemCategory',
 });
 
-EventList.hasMany(ListItem, {
-    foreignKey: 'list_id',
-    foreignKey: 'item_id',
-});
+ListItem.belongsTo(Item, { foreignKey: 'item_id' });
+Item.hasOne(ListItem, { foreignKey: 'item_id' });
 
-await User.sync({ force: true });
-await Event.sync({ force: true });
-await EventList.sync({ force: true });
-await Item.sync({ force: true });
-await Category.sync({ force: true });
-// await ListItem.sync({ force: true });
+EventList.hasMany(ListItem, { foreignKey: 'list_id' });
+ListItem.belongsTo(EventList, { foreignKey: 'list_id' });
+
+await User.sync();
+await Event.sync();
+await Collaborator.sync();
+await EventList.sync();
+await Item.sync();
+await Category.sync();
+await ListItem.sync();
