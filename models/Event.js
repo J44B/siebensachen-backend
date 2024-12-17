@@ -26,7 +26,4 @@ export const Event = sequelize.define('Event', {
     recurrence_pattern: {
         type: DataTypes.STRING,
     },
-    list_ids: {
-        type: DataTypes.ARRAY(DataTypes.INTEGER), // Array of list_ids in the specific event
-    },
 });

@@ -5,19 +5,29 @@ import {
     EventList,
     ListItem,
     Category,
-    ItemCategory,
 } from './indexModels.js';
 
-User.hasMany(Event, {
-    foreignKey: 'owner_id',
-});
+User.hasMany(Event);
 
-Event.belongsTo(User, {
-    foreignKey: 'owner_id',
-});
+Event.belongsTo(User, { foreignKey: 'owner_id' });
 
-EventList.belongsTo(Event, {
-    foreignKey: 'event_id',
+Event.hasMany(EventList);
+
+EventList.belongsTo(Event);
+
+Item.hasMany(Category);
+
+Category.belongsToMany(Item, { through: 'ItemCategory' });
+
+EventList.hasMany(Item);
+
+Item.belongsToMany(EventList, { through: 'ListItem' });
+
+ListItem.hasMany(Item);
+
+ListItem.belongsTo(ListItem, {
+    foreignKey: 'list_id',
+    foreignKey: 'item_id',
 });
 
 EventList.hasMany(ListItem, {
@@ -25,24 +35,9 @@ EventList.hasMany(ListItem, {
     foreignKey: 'item_id',
 });
 
-ListItem.belongsTo(EventList, {
-    foreignKey: 'list_id',
-    foreignKey: 'item_id',
-});
-
-Event.hasMany(EventList, {
-    foreignKey: 'event_id',
-});
-
-Item.belongsToMany(EventList, { through: ListItem });
-
-Category.belongsToMany(Item, { through: ItemCategory });
-
-await User.sync();
-await Event.sync();
-await Item.sync();
-await EventList.sync();
-await Category.sync();
-
-// await ListItem.sync(); // ListItem is undefined in the current state of development!
-// await ItemCategory.sync(); // ItemCategory is undefined in the current state of development!
+await User.sync({ force: true });
+await Event.sync({ force: true });
+await EventList.sync({ force: true });
+await Item.sync({ force: true });
+await Category.sync({ force: true });
+// await ListItem.sync({ force: true });
