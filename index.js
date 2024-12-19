@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import './models/dbInit.js';
-import './db/db.js';
+import './src/models/dbInit.js';
+import './src/db/db.js';
 
 const app = express();
 
