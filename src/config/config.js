@@ -2,7 +2,7 @@ const config = {
     isProduction: process.env.NODE_ENV === 'production',
     corsOrigin:
         process.env.NODE_ENV === 'production'
-            ? 'http://localhost:5173' // INSERT PROD URL HERE (should be netlify)
+            ? 'https://glittering-axolotl-46f93c.netlify.app' // INSERT PROD URL HERE (should be netlify)
             : 'http://localhost:5173',
     cookieSettings: {
         httpOnly: true,
