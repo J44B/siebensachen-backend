@@ -17,9 +17,9 @@ app.use(morgan('dev'));
 
 const port = process.env.PORT || 8080;
 
-// insert routers
-
 app.use(express.json());
+
+// Routes
 
 app.use('/users', userRouter);
 

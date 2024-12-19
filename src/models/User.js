@@ -4,11 +4,9 @@ import { DataTypes } from 'sequelize';
 export const User = sequelize.define('User', {
     first_name: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     last_name: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     user_name: {
         type: DataTypes.STRING,

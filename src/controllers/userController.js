@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 // Sign up
-export async function signUp() {
+export async function signUp(req, res) {
     /*
     Check if user exist (email) []
         - If user exists, return an Error []
@@ -16,7 +16,7 @@ export async function signUp() {
             - Return the token []
 */
 
-    const { firstName, lastName, username, email, password } = req.body;
+    const { first_name, last_name, user_name, email, password } = req.body;
 
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser)
@@ -27,10 +27,12 @@ export async function signUp() {
 
     const hash = await bcrypt.hash(password, 10);
     const newUser = await User.create({
-        firstName,
-        lastName,
-        username,
+        first_name,
+        last_name,
+        user_name,
         email,
         password: hash,
     });
+    const token = jwt.sign({ uid: newUser.id }, process.env.JWT_SECRET);
+    res.status(201).send({ token });
 }

@@ -8,6 +8,6 @@ import {
 
 const userRouter = Router();
 
-userRouter.route();
+userRouter.route('/').post(validateJoi(userSchema), signUp);
 
 export default userRouter;
