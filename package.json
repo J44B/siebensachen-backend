@@ -1,25 +1,27 @@
 {
-  "name": "siebensachen-backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "dev": "node -r dotenv/config --watch index.js",
-    "start": "node index.js",
-    "init": "node -r dotenv/config -e \"(async () => { const { init } = require('./db'); await init(); })()\""
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^5.0.1",
-    "joi": "^17.13.3",
-    "morgan": "^1.10.0",
-    "pg": "^8.13.1",
-    "sequelize": "^6.37.5"
-  }
+    "name": "siebensachen-backend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "node -r dotenv/config --watch index.js",
+        "start": "node index.js",
+        "init": "node -r dotenv/config -e \"(async () => { const { init } = require('./db'); await init(); })()\""
+    },
+    "keywords": [],
+    "author": "Jochen Schwarz",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^5.0.1",
+        "joi": "^17.13.3",
+        "jsonwebtoken": "^9.0.2",
+        "morgan": "^1.10.0",
+        "pg": "^8.13.1",
+        "sequelize": "^6.37.5"
+    }
 }

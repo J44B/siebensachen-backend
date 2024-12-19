@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import { userRouter } from './src/routes/indexRouters.js';
 import './src/models/dbInit.js';
 import './src/db/db.js';
 
@@ -19,6 +20,8 @@ const port = process.env.PORT || 8080;
 // insert routers
 
 app.use(express.json());
+
+app.use('/users', userRouter);
 
 // insert error handler
 

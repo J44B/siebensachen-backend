@@ -19,7 +19,7 @@ export const User = sequelize.define('User', {
         allowNull: false,
         unique: true,
     },
-    hashed_password: {
+    password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
