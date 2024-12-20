@@ -1,21 +1,31 @@
 import Joi from 'joi';
 
 export const userSchema = Joi.object({
-    first_name: Joi.string().alphanum().min(3).max(15).trim(),
-    last_name: Joi.string().alphanum().min(3).max(15).trim(),
-    user_name: Joi.string()
-        .pattern(/[A-Za-z0-9]/)
+    firstName: Joi.string()
+        .optional()
+        .allow('')
+        .alphanum()
         .min(3)
         .max(15)
-        .trim()
-        .required(),
-    email: Joi.string().email().trim().required(),
+        .trim(),
+    lastName: Joi.string()
+        .optional()
+        .allow('')
+        .alphanum()
+        .min(3)
+        .max(15)
+        .trim(),
+    userName: Joi.string()
+        .required()
+        .pattern(/[A-Za-z0-9]/)
+        .trim(),
+    email: Joi.string().required().email().trim(),
 
     // Add password-complexity at some point. https://github.com/kamronbatman/joi-password-complexity
 
     password: Joi.string()
+        .required()
         .pattern(/[A-Za-z0-9]/)
         .min(8)
-        .max(24)
-        .required(),
+        .max(24),
 });

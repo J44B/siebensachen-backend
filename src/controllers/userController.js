@@ -6,30 +6,20 @@ import bcrypt from 'bcrypt';
 
 // Sign up
 export async function signUp(req, res) {
-    /*
-    Check if user exist (email) []
-        - If user exists, return an Error []
-        - If user does not exist:
-            - Secure the password using bcrypt []
-            - Store the user in DB []
-            - Sign a token []
-            - Return the token []
-*/
-
-    const { first_name, last_name, user_name, email, password } = req.body;
+    const { firstName, lastName, userName, email, password } = req.body;
 
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser)
         throw new ErrorResponse(
-            'Ein Account mit dieser E-Mail-Adresse existiert bereits.',
+            'An account with this email already exists.',
             409,
         );
 
     const hash = await bcrypt.hash(password, 10);
     const newUser = await User.create({
-        first_name,
-        last_name,
-        user_name,
+        firstName,
+        lastName,
+        userName,
         email,
         password: hash,
     });

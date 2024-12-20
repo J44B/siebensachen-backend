@@ -2,13 +2,13 @@ import sequelize from '../db/db.js';
 import { DataTypes } from 'sequelize';
 
 export const User = sequelize.define('User', {
-    first_name: {
+    firstName: {
         type: DataTypes.STRING,
     },
-    last_name: {
+    lastName: {
         type: DataTypes.STRING,
     },
-    user_name: {
+    userName: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -21,7 +21,7 @@ export const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    avatar_url: {
+    avatarUrl: {
         type: DataTypes.STRING,
     },
 });
