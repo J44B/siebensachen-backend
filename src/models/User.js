@@ -2,15 +2,13 @@ import sequelize from '../db/db.js';
 import { DataTypes } from 'sequelize';
 
 export const User = sequelize.define('User', {
-    first_name: {
+    firstName: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
-    last_name: {
+    lastName: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
-    user_name: {
+    userName: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -19,11 +17,11 @@ export const User = sequelize.define('User', {
         allowNull: false,
         unique: true,
     },
-    hashed_password: {
+    password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    avatar_url: {
+    avatarUrl: {
         type: DataTypes.STRING,
     },
 });
