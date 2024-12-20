@@ -9,6 +9,7 @@ export async function signUp(req, res) {
     const { firstName, lastName, userName, email, password } = req.body;
 
     const existingUser = await User.findOne({ where: { email } });
+    console.log(email);
     if (existingUser)
         throw new ErrorResponse(
             'An account with this email already exists.',
