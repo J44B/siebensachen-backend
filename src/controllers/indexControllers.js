@@ -1,7 +1,7 @@
 // --- Begin import section ---
 
-import { signUp, logIn } from './userController.js';
+import { signUp, logIn, getCurrentUser } from './userController.js';
 
 // --- End import section ---
 
-export { signUp, logIn };
+export { signUp, logIn, getCurrentUser };

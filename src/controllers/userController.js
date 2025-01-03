@@ -43,12 +43,17 @@ export async function logIn(req, res) {
 
     const user = await User.findByPk(existingUser.id);
 
-    const token = jwt.sign({ id: existingUser.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ uid: existingUser.id }, process.env.JWT_SECRET, {
         expiresIn: '1h',
     });
 
-    // res.json({ user, token });
-
     res.cookie('token', token, config.cookieSettings);
     res.send({ status: 'logged in' });
+}
+
+// Get user details
+export async function getCurrentUser(req, res, next) {
+    const currentUser = await User.findByPk(req.uid);
+    // console.log('from userController.js --> User found:', currentUser); // Log user retrieved from database
+    res.json(currentUser);
 }
