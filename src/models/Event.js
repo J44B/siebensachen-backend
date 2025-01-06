@@ -10,11 +10,11 @@ export const Event = sequelize.define('Event', {
         type: DataTypes.STRING,
     },
     startDate: {
-        type: DataTypes.DATE(DataTypes.DATEONLY),
+        type: DataTypes.DATEONLY,
         allowNull: false,
     },
     endDate: {
-        type: DataTypes.DATE(DataTypes.DATEONLY),
+        type: DataTypes.DATEONLY,
         allowNull: false,
     },
     nights: {
