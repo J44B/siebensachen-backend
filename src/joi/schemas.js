@@ -29,3 +29,11 @@ export const userSchema = Joi.object({
         .min(8)
         .max(24),
 });
+
+export const eventSchema = Joi.object({
+    title: Joi.string().required().alphanum().min(3).trim(),
+    imageUrl: Joi.string().optional().allow('').alphanum(),
+    startDate: Joi.string().required(),
+    endDate,
+    nights,
+});
