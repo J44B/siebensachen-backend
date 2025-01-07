@@ -7,18 +7,13 @@ Todos
 
 Create event
 Get events from user
+Get single event
 Delete event
 
 */
 
 export async function createEvent(req, res) {
-    const { title, imageUrl, startDate, endDate } = req.body;
-    event.owner_id = req.userId;
-    const newEvent = await Event.create({
-        title,
-        imageUrl,
-        startDate,
-        endDate,
-    });
+    const { body, uid } = req;
+    const newEvent = await Event.create({ ...body, owner_id: uid });
     res.status(201).send({ newEvent });
 }
