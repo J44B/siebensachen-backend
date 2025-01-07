@@ -38,4 +38,5 @@ export const eventSchema = Joi.object({
     imageUrl: Joi.string().optional().allow(''),
     startDate: Joi.date().format('YYYY-MM-DD').required(),
     endDate: Joi.date().format('YYYY-MM-DD').required(),
+    description: Joi.string().optional().allow(''),
 });
