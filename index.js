@@ -9,6 +9,7 @@ import './src/db/db.js';
 import { errorHandler } from './src/middlewares/indexMiddlewares.js';
 
 const app = express();
+const port = process.env.PORT || 8080;
 
 app.use(
     cors({
@@ -19,9 +20,6 @@ app.use(
 
 app.use(morgan('dev'));
 app.use(cookieParser());
-
-const port = process.env.PORT || 8080;
-
 app.use(express.json());
 
 // Routes
