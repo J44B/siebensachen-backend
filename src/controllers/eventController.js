@@ -8,6 +8,7 @@ Todos
 Create event
 Get events from user
 Get single event
+Update event
 Delete event
 
 */
