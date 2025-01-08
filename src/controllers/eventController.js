@@ -37,3 +37,15 @@ export async function createEvent(req, res) {
     const newEvent = await Event.create({ ...body, owner_id: uid });
     res.status(201).send({ newEvent });
 }
+
+export async function updateEvent(req, res) {
+    const {
+        body,
+        params: { id },
+    } = req;
+    const event = await Event.findByPk(id);
+    if (!event) throw new ErrorResponse('Event not found', 404);
+    await event.update(req.body);
+    await event.save();
+    res.json(event);
+}

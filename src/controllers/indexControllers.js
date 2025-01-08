@@ -1,7 +1,12 @@
 // --- Begin import section ---
 
 import { signUp, logIn, getCurrentUser } from './userController.js';
-import { createEvent, getAllEvents, getEventById } from './eventController.js';
+import {
+    createEvent,
+    getAllEvents,
+    getEventById,
+    updateEvent,
+} from './eventController.js';
 
 // --- End import section ---
 
@@ -12,4 +17,5 @@ export {
     createEvent,
     getAllEvents,
     getEventById,
+    updateEvent,
 };
