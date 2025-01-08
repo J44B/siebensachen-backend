@@ -6,7 +6,7 @@ import ErrorResponse from '../utils/ErrorResponse.js';
 Todos
 
 Create event [x]
-Get all events []
+Get all events [x]
 Get single event []
 Update event []
 Delete event []
@@ -19,6 +19,13 @@ export async function getAllEvents(req, res) {
     });
     if (!events.length) throw new ErrorResponse('No event found', 404);
     res.json(events);
+}
+
+export async function getEventById(req, res) {
+    const event = await Event.findByPk({
+        include: { model: User, attributes: ['firstName'] },
+    });
+    res.json(event);
 }
 
 export async function createEvent(req, res) {
