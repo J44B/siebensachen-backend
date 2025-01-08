@@ -1,4 +1,7 @@
-import Joi from 'joi';
+import joibase from 'joi';
+import joidate from '@joi/date';
+
+const Joi = joibase.extend(joidate);
 
 export const userSchema = Joi.object({
     firstName: Joi.string()
@@ -28,4 +31,12 @@ export const userSchema = Joi.object({
         .pattern(/[A-Za-z0-9]/)
         .min(8)
         .max(24),
+});
+
+export const eventSchema = Joi.object({
+    title: Joi.string().required().min(3).trim(),
+    imageUrl: Joi.string().optional().allow(''),
+    startDate: Joi.date().format('YYYY-MM-DD').required(),
+    endDate: Joi.date().format('YYYY-MM-DD').required(),
+    description: Joi.string().optional().allow(''),
 });
