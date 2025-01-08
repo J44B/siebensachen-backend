@@ -22,9 +22,13 @@ export async function getAllEvents(req, res) {
 }
 
 export async function getEventById(req, res) {
-    const event = await Event.findByPk({
+    const {
+        params: { id },
+    } = req;
+    const event = await Event.findByPk(id, {
         include: { model: User, attributes: ['firstName'] },
     });
+    console.log(event);
     res.json(event);
 }
 
