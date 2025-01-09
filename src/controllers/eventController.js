@@ -1,18 +1,6 @@
 import { Event, User } from '../models/indexModels.js';
 import ErrorResponse from '../utils/ErrorResponse.js';
 
-/* 
-
-Todos
-
-Create event [x]
-Get all events [x]
-Get single event []
-Update event []
-Delete event []
-
-*/
-
 export async function getAllEvents(req, res) {
     const events = await Event.findAll({
         include: { model: User, attributes: ['firstName'] },

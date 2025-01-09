@@ -2,7 +2,8 @@
 
 import userRouter from './userRouter.js';
 import eventRouter from './eventRouters.js';
+import listRouter from './eventListRouter.js';
 
 // --- End import section ---
 
-export { userRouter, eventRouter };
+export { userRouter, eventRouter, listRouter };
