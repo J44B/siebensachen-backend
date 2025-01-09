@@ -6,6 +6,7 @@ import {
     getAllEvents,
     getEventById,
     updateEvent,
+    deleteEvent,
 } from './eventController.js';
 
 // --- End import section ---
@@ -18,4 +19,5 @@ export {
     getAllEvents,
     getEventById,
     updateEvent,
+    deleteEvent,
 };

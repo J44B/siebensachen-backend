@@ -49,3 +49,13 @@ export async function updateEvent(req, res) {
     await event.save();
     res.json(event);
 }
+
+export async function deleteEvent(req, res) {
+    const {
+        params: { id },
+    } = req;
+    const event = await Event.findByPk(id);
+    if (!event) throw new ErrorResponse('Event not found', 404);
+    await event.destroy();
+    res.json({ message: 'Event deleted' });
+}
