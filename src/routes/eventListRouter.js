@@ -1,3 +1,11 @@
+/*
+
+TODOS
+
+- add verifyToken to all routes
+
+*/
+
 import { Router } from 'express';
 import {
     createEventList,
@@ -12,15 +20,15 @@ import verifyToken from '../middlewares/verifyToken.js';
 
 const listRouter = Router();
 
-listRouter.get('/:eventId/:listId', verifyToken, getEventListById);
-listRouter.get('/:eventId', verifyToken, getAllEventLists);
+listRouter.get('/:eventId/:listId', getEventListById);
+listRouter.get('/:eventId', getAllEventLists);
 listRouter.post(
     '/:eventId',
-    verifyToken,
+
     validateJoi(eventListSchema),
     createEventList,
 );
-listRouter.put('/:eventId/:listId', verifyToken, updateEventList);
-listRouter.delete('/:eventId/:listId', verifyToken, deleteEventList);
+listRouter.put('/:eventId/:listId', updateEventList);
+listRouter.delete('/:eventId/:listId', deleteEventList);
 
 export default listRouter;

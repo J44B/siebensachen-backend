@@ -1,3 +1,11 @@
+/*
+
+TODOS
+
+- add verifyToken to all routes
+
+*/
+
 import { Router } from 'express';
 import {
     createEvent,
@@ -14,8 +22,8 @@ const eventRouter = Router();
 
 eventRouter.get('/', getAllEvents);
 eventRouter.get('/:id', getEventById);
-eventRouter.post('/create', verifyToken, validateJoi(eventSchema), createEvent);
-eventRouter.put('/:id', verifyToken, validateJoi(eventSchema), updateEvent);
-eventRouter.delete('/:id', verifyToken, deleteEvent);
+eventRouter.post('/create', validateJoi(eventSchema), createEvent);
+eventRouter.put('/:id', validateJoi(eventSchema), updateEvent);
+eventRouter.delete('/:id', deleteEvent);
 
 export default eventRouter;
