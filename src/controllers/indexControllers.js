@@ -10,7 +10,13 @@ import {
     deleteEvent,
 } from './eventController.js';
 
-import { createEventList, getAllEventLists } from './eventListController.js';
+import {
+    createEventList,
+    getAllEventLists,
+    getEventListById,
+    updateEventList,
+    deleteEventList,
+} from './eventListController.js';
 
 // --- End import section ---
 
@@ -25,4 +31,7 @@ export {
     deleteEvent,
     createEventList,
     getAllEventLists,
+    getEventListById,
+    updateEventList,
+    deleteEventList,
 };

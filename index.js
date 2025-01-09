@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import morgan from 'morgan';
+// import morgan from 'morgan';
 import {
     userRouter,
     eventRouter,
@@ -22,7 +22,7 @@ app.use(
     }),
 );
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
 
@@ -30,7 +30,7 @@ app.use(express.json());
 
 app.use('/users', userRouter);
 app.use('/events', eventRouter);
-app.use('/events/:eventId/lists', listRouter);
+app.use('/lists', listRouter);
 
 app.use(errorHandler);
 
