@@ -18,6 +18,14 @@ import {
     deleteEventList,
 } from './eventListController.js';
 
+import {
+    createItem,
+    getAllItems,
+    getItemById,
+    updateItem,
+    deleteItem,
+} from './itemController.js';
+
 // --- End import section ---
 
 export {
@@ -34,4 +42,9 @@ export {
     getEventListById,
     updateEventList,
     deleteEventList,
+    createItem,
+    getAllItems,
+    getItemById,
+    updateItem,
+    deleteItem,
 };

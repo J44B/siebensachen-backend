@@ -9,8 +9,4 @@ export const Item = sequelize.define('Items', {
     icon: {
         type: DataTypes.STRING,
     },
-    isDefault: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false, // if "true" then the item must not be deletable in the items list
-    },
 });

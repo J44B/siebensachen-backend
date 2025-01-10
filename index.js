@@ -6,6 +6,7 @@ import {
     userRouter,
     eventRouter,
     listRouter,
+    itemRouter,
 } from './src/routes/indexRouters.js';
 import config from './src/config/config.js';
 import './src/models/dbInit.js';
@@ -31,6 +32,7 @@ app.use(express.json());
 app.use('/users', userRouter);
 app.use('/events', eventRouter);
 app.use('/lists', listRouter);
+app.use('/items', itemRouter);
 
 app.use(errorHandler);
 

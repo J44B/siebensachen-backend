@@ -44,3 +44,7 @@ export const eventSchema = Joi.object({
 export const eventListSchema = Joi.object({
     title: Joi.string().required().min(3).trim(),
 });
+
+export const itemSchema = Joi.object({
+    title: Joi.string().required().min(3).trim(),
+});
