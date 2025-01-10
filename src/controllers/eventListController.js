@@ -8,8 +8,8 @@ Todos
 Create eventList [x]
 Get all eventLists [x]
 Get single eventList [x]
-Update eventList []
-Delete eventList []
+Update eventList [x]
+Delete eventList [x]
 
 */
 
@@ -26,9 +26,9 @@ export async function createEventList(req, res) {
 
 export async function getAllEventLists(req, res) {
     const { eventId } = req.params;
-    const event = await Event.findByPk(eventId);
-    if (!event) throw new ErrorResponse('Event not found', 404);
-    const lists = await EventList.findAll();
+    // const event = await Event.findByPk(eventId);
+    // if (!event) throw new ErrorResponse('Event not found', 404);
+    const lists = await EventList.findAll({ where: { event_id: eventId } });
     if (!lists.length)
         throw new ErrorResponse('No lists found for this event', 404);
     res.json(lists);
