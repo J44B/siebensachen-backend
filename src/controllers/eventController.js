@@ -16,7 +16,7 @@ export async function getEventById(req, res) {
     const event = await Event.findByPk(id, {
         include: { model: User, attributes: ['firstName'] },
     });
-    console.log(event);
+    console.log('LOG EVENT FROM EVENT CONTROLLER:', event);
     res.json(event);
 }
 

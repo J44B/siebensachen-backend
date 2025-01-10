@@ -22,7 +22,7 @@ const eventRouter = Router();
 
 eventRouter.get('/', getAllEvents);
 eventRouter.get('/:id', getEventById);
-eventRouter.post('/create', validateJoi(eventSchema), createEvent);
+eventRouter.post('/create', verifyToken, validateJoi(eventSchema), createEvent);
 eventRouter.put('/:id', validateJoi(eventSchema), updateEvent);
 eventRouter.delete('/:id', deleteEvent);
 
