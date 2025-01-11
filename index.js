@@ -9,6 +9,7 @@ import {
     itemRouter,
     categoryRouter,
     subCategoryRouter,
+    listItemRouter,
 } from './src/routes/indexRouters.js';
 import config from './src/config/config.js';
 import './src/models/dbInit.js';
@@ -37,6 +38,7 @@ app.use('/lists', listRouter);
 app.use('/items', itemRouter);
 app.use('/categories', categoryRouter);
 app.use('/subcategories', subCategoryRouter);
+app.use('/listitems', listItemRouter);
 
 app.use(errorHandler);
 

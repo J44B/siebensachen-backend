@@ -42,6 +42,12 @@ import {
     deleteSubCategory,
 } from './subCategoryController.js';
 
+import {
+    createListItem,
+    getAllItemsFromList,
+    deleteItemFromList,
+} from './ListItemController.js';
+
 // --- End import section ---
 
 export {
@@ -73,4 +79,7 @@ export {
     getSubCategoryById,
     updateSubCategory,
     deleteSubCategory,
+    createListItem,
+    getAllItemsFromList,
+    deleteItemFromList,
 };

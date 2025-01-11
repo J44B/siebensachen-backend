@@ -6,6 +6,7 @@ import listRouter from './eventListRouter.js';
 import itemRouter from './itemRouter.js';
 import categoryRouter from './categoryRouter.js';
 import subCategoryRouter from './subCategoryRouter.js';
+import listItemRouter from './listItemRouter.js';
 
 // --- End import section ---
 
@@ -16,4 +17,5 @@ export {
     itemRouter,
     categoryRouter,
     subCategoryRouter,
+    listItemRouter,
 };
