@@ -26,6 +26,22 @@ import {
     deleteItem,
 } from './itemController.js';
 
+import {
+    createCategory,
+    getAllCategories,
+    getCategoryById,
+    updateCategory,
+    deleteCategory,
+} from './categoryController.js';
+
+import {
+    createSubCategory,
+    getAllSubCategories,
+    getSubCategoryById,
+    updateSubCategory,
+    deleteSubCategory,
+} from './subCategoryController.js';
+
 // --- End import section ---
 
 export {
@@ -47,4 +63,14 @@ export {
     getItemById,
     updateItem,
     deleteItem,
+    createCategory,
+    getAllCategories,
+    getCategoryById,
+    updateCategory,
+    deleteCategory,
+    createSubCategory,
+    getAllSubCategories,
+    getSubCategoryById,
+    updateSubCategory,
+    deleteSubCategory,
 };
