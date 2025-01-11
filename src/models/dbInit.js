@@ -5,6 +5,7 @@ import {
     EventList,
     ListItem,
     Category,
+    SubCategory,
     Collaborator,
 } from './indexModels.js';
 
@@ -19,10 +20,16 @@ EventList.belongsTo(Event, { foreignKey: 'event_id' });
 
 Event.hasMany(Collaborator, { foreignKey: 'event_id' });
 
-Item.hasMany(Category, { foreignKey: 'item_id' });
+Item.hasOne(Category, { foreignKey: 'item_id' });
 Category.belongsToMany(Item, {
     foreignKey: 'item_id',
     through: 'ItemCategory',
+});
+
+Item.hasOne(SubCategory, { foreignKey: 'item_id' });
+SubCategory.belongsToMany(Item, {
+    foreignKey: 'item_id',
+    through: 'ItemSubCategory',
 });
 
 ListItem.belongsTo(Item, { foreignKey: 'item_id' });
@@ -37,4 +44,5 @@ await Collaborator.sync();
 await EventList.sync();
 await Item.sync();
 await Category.sync();
+await SubCategory.sync();
 await ListItem.sync();
