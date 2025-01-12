@@ -19,13 +19,32 @@ export async function createListItem(req, res) {
     res.status(201).send({ newListItem });
 }
 
+export async function getListItemById(req, res) {
+    const {
+        params: { listId, itemId },
+    } = req;
+    const listItem = await ListItem.findOne({
+        where: {
+            list_id: listId,
+            item_id: itemId,
+        },
+    });
+    if (!listItem) throw new ErrorResponse('Item not found', 404);
+    res.json(listItem);
+}
+
 export async function getAllItemsFromList(req, res) {
     const {
         params: { listId },
     } = req;
     const list = await EventList.findByPk(listId);
     if (!list) throw new ErrorResponse('List not found', 404);
-    const items = await ListItem.findAll({ where: { list_id: listId } });
+    const items = await ListItem.findAll({
+        where: {
+            list_id: listId,
+        },
+        include: { model: Item, attributes: ['title'] },
+    });
     if (!items.length)
         throw new ErrorResponse('No items found for this list', 404);
     res.json(items);
