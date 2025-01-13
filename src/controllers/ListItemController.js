@@ -63,7 +63,7 @@ export async function deleteItemFromList(req, res) {
         params: { listId, itemId },
     } = req;
     const listItem = await ListItem.findOne({
-        where: { list_id: listId, item_id: itemId },
+        where: { list_id: listId, id: itemId },
     });
     if (!listItem) throw new ErrorResponse('Item not found', 404);
     await listItem.destroy();
