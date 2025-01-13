@@ -30,8 +30,12 @@ export async function getItemById(req, res) {
 
 export async function createItem(req, res) {
     const { body } = req;
+    console.log(body);
     const newItem = await Item.create(body);
-    res.status(201).send({ newItem });
+    // res.status(201).send({ newItem });
+    // const recall = await Item.findOne(newItem.id);
+    // res.send({ recall });
+    res.json(newItem);
 }
 
 export async function updateItem(req, res) {

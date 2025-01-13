@@ -23,7 +23,7 @@ export async function createListItem(req, res) {
         where: { item_id: newListItem.item_id },
         include: { model: Item, attributes: ['title'] },
     });
-    // res.status(201).send({ newListItem });
+    // res.status(201).json({ newListItem });
     res.send({ recall });
 }
 
