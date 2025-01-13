@@ -12,11 +12,19 @@ export async function createListItem(req, res) {
     const item = await Item.findByPk(itemId);
     if (!list || !item)
         throw new ErrorResponse('List not found' || 'Item not found', 404);
-    const newListItem = await ListItem.create({
-        list_id: listId,
-        item_id: itemId,
+    const newListItem = await ListItem.create(
+        {
+            list_id: listId,
+            item_id: itemId,
+        },
+        // { include: { model: Item, attributes: ['title'] } },
+    );
+    const recall = await ListItem.findOne({
+        where: { item_id: newListItem.item_id },
+        include: { model: Item, attributes: ['title'] },
     });
-    res.status(201).send({ newListItem });
+    // res.status(201).send({ newListItem });
+    res.send({ recall });
 }
 
 export async function getListItemById(req, res) {
