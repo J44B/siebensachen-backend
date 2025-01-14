@@ -1,3 +1,11 @@
+/* 
+
+TODOS
+
+- fetch correct entry from database to get correct id 
+
+*/
+
 import { EventList, Item, ListItem } from '../models/indexModels.js';
 import ErrorResponse from '../utils/ErrorResponse.js';
 
