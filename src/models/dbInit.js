@@ -43,4 +43,4 @@ await EventList.sync();
 await Item.sync({ alter: true });
 await Category.sync({ alter: true });
 await SubCategory.sync({ alter: true });
-await ListItem.sync();
+await ListItem.sync({ alter: true });

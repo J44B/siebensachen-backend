@@ -45,6 +45,7 @@ import {
 import {
     createListItem,
     getAllItemsFromList,
+    updateListItem,
     deleteItemFromList,
 } from './ListItemController.js';
 
@@ -81,5 +82,6 @@ export {
     deleteSubCategory,
     createListItem,
     getAllItemsFromList,
+    updateListItem,
     deleteItemFromList,
 };
