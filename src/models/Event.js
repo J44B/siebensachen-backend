@@ -21,7 +21,7 @@ export const Event = sequelize.define('Event', {
         type: DataTypes.STRING,
     },
     nights: {
-        type: DataTypes.INTEGER(sequelize.endDate - sequelize.startDate),
+        type: DataTypes.INTEGER,
     },
     recurring: {
         type: DataTypes.BOOLEAN,

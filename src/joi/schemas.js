@@ -40,3 +40,19 @@ export const eventSchema = Joi.object({
     endDate: Joi.date().format('YYYY-MM-DD').required(),
     description: Joi.string().optional().allow(''),
 });
+
+export const eventListSchema = Joi.object({
+    title: Joi.string().required().min(3).trim(),
+});
+
+export const itemSchema = Joi.object({
+    title: Joi.string().required().min(3).trim(),
+});
+
+export const categorySchema = Joi.object({
+    title: Joi.string().required().min(3).trim(),
+});
+
+export const subCategorySchema = Joi.object({
+    title: Joi.string().required().min(3).trim(),
+});

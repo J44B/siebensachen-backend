@@ -1,22 +1,8 @@
 import { Event, User } from '../models/indexModels.js';
 import ErrorResponse from '../utils/ErrorResponse.js';
 
-/* 
-
-Todos
-
-Create event [x]
-Get all events [x]
-Get single event []
-Update event []
-Delete event []
-
-*/
-
 export async function getAllEvents(req, res) {
-    const events = await Event.findAll({
-        include: { model: User, attributes: ['firstName'] },
-    });
+    const events = await Event.findAll({});
     if (!events.length) throw new ErrorResponse('No event found', 404);
     res.json(events);
 }
@@ -25,10 +11,8 @@ export async function getEventById(req, res) {
     const {
         params: { id },
     } = req;
-    const event = await Event.findByPk(id, {
-        include: { model: User, attributes: ['firstName'] },
-    });
-    console.log(event);
+    const event = await Event.findByPk(id, {});
+    // console.log('LOG EVENT FROM EVENT CONTROLLER:', event);
     res.json(event);
 }
 
@@ -48,4 +32,14 @@ export async function updateEvent(req, res) {
     await event.update(req.body);
     await event.save();
     res.json(event);
+}
+
+export async function deleteEvent(req, res) {
+    const {
+        params: { id },
+    } = req;
+    const event = await Event.findByPk(id);
+    if (!event) throw new ErrorResponse('Event not found', 404);
+    await event.destroy();
+    res.json({ message: 'Event deleted' });
 }
